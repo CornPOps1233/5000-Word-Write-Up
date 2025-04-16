@@ -22,8 +22,8 @@
   </style>
 </head>
 <body>
-  <h1>Type Exactly 5000 Words to Unlock a Secret</h1>
-  <p>Start typing below. When you reach exactly 5000 words, something special happens.</p>
+  <h1>Type 5000 Words to Unlock to unlock the serect code</h1>
+  <p>Start typing below. When you reach 5000 words the code is revealed!</p>
   <textarea id="textInput" placeholder="Start typing..."></textarea>
   <div id="result">Words typed: 0</div>
 
@@ -38,7 +38,7 @@
       const words = textInput.value.trim().split(/\s+/).filter(w => w.length > 0);
       const wordCount = words.length;
 
-      if (wordCount === 5000) {
+      if (wordCount >= 5000) {
         result.textContent = `🎉 You unlocked the secret code: ${secretCode}`;
       } else {
         result.textContent = `Words typed: ${wordCount}`;
