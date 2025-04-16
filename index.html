@@ -25,23 +25,23 @@
   <h1>Type a 5000 Word Essay to Unlock the code</h1>
   <p>Start typing below. When you reach 5000 words the code is revealed!</p>
   <textarea id="textInput" placeholder="Start typing..."></textarea>
-  <div id="result">Words typed: 0</div>
+  <div id="result">Words typed (3+ letters): 0</div>
 
   <script>
     // Hidden code (base64-encoded)
-    const secretCode = atob("WW91IFBhc3NlZA=="); // "SECRET-CODE-123"
+    const secretCode = atob("WW91IFBhc3NlZA=="); // "You Passed"
 
     const textInput = document.getElementById('textInput');
     const result = document.getElementById('result');
 
     textInput.addEventListener('input', () => {
-      const words = textInput.value.trim().split(/\s+/).filter(w => w.length > 3);
+      const words = textInput.value.trim().split(/\s+/).filter(w => w.length >= 3);
       const wordCount = words.length;
 
       if (wordCount >= 5000) {
         result.textContent = `🎉 You unlocked the secret code: ${secretCode}`;
       } else {
-        result.textContent = `Words typed: ${wordCount}`;
+        result.textContent = `Words typed (3+ letters): ${wordCount}`;
       }
     });
   </script>
