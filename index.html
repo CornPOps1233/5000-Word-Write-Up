@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>5000 Word Challenge</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      margin-top: 1rem;
+    }
+    #result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Type Exactly 5000 Words to Unlock a Secret</h1>
+  <p>Start typing below. When you reach exactly 5000 words, something special happens.</p>
+  <textarea id="textInput" placeholder="Start typing..."></textarea>
+  <div id="result">Words typed: 0</div>
+
+  <script>
+    // Hidden code (base64-encoded)
+    const secretCode = atob("U0VDUkVULUNPREUtMTIz"); // "SECRET-CODE-123"
+
+    const textInput = document.getElementById('textInput');
+    const result = document.getElementById('result');
+
+    textInput.addEventListener('input', () => {
+      const words = textInput.value.trim().split(/\s+/).filter(w => w.length > 0);
+      const wordCount = words.length;
+
+      if (wordCount === 5000) {
+        result.textContent = `🎉 You unlocked the secret code: ${secretCode}`;
+      } else {
+        result.textContent = `Words typed: ${wordCount}`;
+      }
+    });
+  </script>
+</body>
+</html>
